@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak - Toko Elektronik Firdaus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    .hero-kontak {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                  url('https://mampirsemarang.net/wp-content/uploads/2024/07/TOKO-ELEKTRONIK-SEMARANG.jpeg') center/cover no-repeat;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .card-custom {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .btn-primary { border:none; border-radius:8px; transition:.3s; }
+    .btn-primary:hover { background-color:#0b5ed7; }
+    
+    /* WA Toggle */
+    #wa-toggle {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 9999;
+    }
+    #wa-toggle i {
+      color: #fff;
+      font-size: 28px;
+    }
+      .custom-toggler {
+  border: none;
+  background: transparent;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.custom-toggler .bar {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.custom-toggler.active .top-bar {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.custom-toggler.active .middle-bar {
+  opacity: 0;
+}
+
+.custom-toggler.active .bottom-bar {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container d-flex align-items-center justify-content-start">
+      <!-- Hamburger kiri -->
+      <button class="navbar-toggler custom-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="bar top-bar"></span>
+        <span class="bar middle-bar"></span>
+        <span class="bar bottom-bar"></span>
+      </button>
+
+      <!-- Logo & Brand -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="img/fe-1.png" alt="Logo" width="30" height="30" class="me-2">
+        Toko Elektronik Firdaus
+      </a>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="promo.html">Promo</a></li>
+          <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link active" href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-kontak">
+    <div class="container">
+      <h1 class="display-4">Hubungi Kami</h1>
+      <p class="lead px-4">Kami siap membantu menjawab pertanyaan dan melayani kebutuhan Anda</p>
+    </div>
+  </header>
+
+  <!-- Kontak -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card card-custom p-4">
+            <h4 class="fw-bold mb-3">Kirim Pesan</h4>
+            <form id="contactForm">
+              <div class="mb-3">
+                <label class="form-label">Nama</label>
+                <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Masukkan email Anda" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Pesan</label>
+                <textarea id="message" class="form-control" rows="4" placeholder="Tulis pesan Anda..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Kirim</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card card-custom p-4">
+            <h4 class="fw-bold mb-3">Alamat Toko</h4>
+            <p><i class="bi bi-geo-alt-fill text-danger me-2"></i> Jl. Melati No. 123, Jakarta Selatan</p>
+            <p><i class="bi bi-telephone-fill text-success me-2"></i> Telp/WA: 
+              <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+            </p>
+            <div class="ratio ratio-16x9 mt-3">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18..." 
+                style="border:0;" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+    <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMessage"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WA Toggle -->
+  <div id="wa-toggle" onclick="window.open('https://wa.me/6281234567890','_blank')">
+    <i class="bi bi-whatsapp"></i>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Toko Elektronik Firdaus. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

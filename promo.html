@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cek Promo - Toko Elektronik Firdaus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Hero */
+    .hero-promo {
+      background: url('https://images.renos.id/production/assets/portal-assets/1161/product/images/xopkaqlzdo.jpg') center/cover no-repeat;
+      height: 50vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-promo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .hero-promo .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Card Promo */
+    .card-img-top {
+      height: 220px; /* fix tinggi agar rapi */
+      object-fit: contain; /* gambar tidak pecah/terpotong */
+      padding: 15px;
+      background: #f8f9fa;
+    }
+
+    /* Tombol konsisten */
+    .btn-primary {
+      border-radius: 50px; /* tombol pill modern */
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+
+    .custom-toggler {
+      border: none;
+      background: transparent;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .custom-toggler .bar {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .custom-toggler.active .top-bar {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .custom-toggler.active .middle-bar {
+      opacity: 0;
+    }
+
+    .custom-toggler.active .bottom-bar {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  </style>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container d-flex align-items-center justify-content-start">
+    <!-- Hamburger kiri -->
+    <button class="navbar-toggler custom-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="bar top-bar"></span>
+      <span class="bar middle-bar"></span>
+      <span class="bar bottom-bar"></span>
+    </button>
+
+    <!-- Logo & Brand -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+      <img src="img/fe-1.png" alt="Logo" width="30" height="30" class="me-2">
+      Toko Elektronik Firdaus
+    </a>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+        <li class="nav-item"><a class="nav-link active" href="promo.html">Promo</a></li>
+        <li class="nav-item"><a class="nav-link " href="tentang.html">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Promo -->
+  <header class="hero-promo text-white">
+    <div class="container">
+      <h1 class="display-5 fw-bold px-3">Promo Spesial Bulan Ini</h1>
+      <p class="lead">Diskon besar untuk produk pilihan</p>
+    </div>
+  </header>
+
+  <!-- Daftar Promo -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 px-5">Produk dengan Diskon Spesial</h2>
+      <div class="row g-4">
+
+        <!-- Promo 1 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow text-center">
+            <img src="https://images.samsung.com/is/image/samsung/nz-fhd-t5500-ua43t6500asxnz-frontblack-thumb-231817640" 
+                 class="card-img-top" alt="TV Samsung 43 Inch Full HD">
+            <div class="card-body">
+              <h5 class="card-title">TV Samsung 43 Inch</h5>
+              <p class="text-muted"><del>Rp 6.500.000</del></p>
+              <h4 class="text-danger fw-bold">Rp 4.999.000</h4>
+              <a href="promo/promo-tv.html" class="btn btn-primary mt-3 w-100">Beli Sekarang</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo 2 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow text-center">
+            <img src="https://images.renos.id/production/assets/portal-assets/1161/product/images/xopkaqlzdo.jpg" 
+                 class="card-img-top" alt="AC LG Inverter 1 PK">
+            <div class="card-body">
+              <h5 class="card-title">AC LG Inverter 1 PK</h5>
+              <p class="text-muted"><del>Rp 3.500.000</del></p>
+              <h4 class="text-danger fw-bold">Rp 2.000.000</h4>
+              <a href="promo/promo-ac.html" class="btn btn-primary mt-3 w-100">Beli Sekarang</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo 3 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow text-center">
+            <img src="https://images.samsung.com/is/image/samsung/id-side-by-side-rs5000-rs62r5041b4-se-lperspectiveblack-150397128?$684_547_PNG$" 
+                 class="card-img-top" alt="Kulkas Samsung Side by Side 620L">
+            <div class="card-body">
+              <h5 class="card-title">Kulkas Side by Side 620L</h5>
+              <p class="text-muted"><del>Rp 7.800.000</del></p>
+              <h4 class="text-danger fw-bold">Rp 5.799.000</h4>
+              <a href="promo/promo-kulkas.html" class="btn btn-primary mt-3 w-100">Beli Sekarang</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Toko Elektronik Firdaus. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

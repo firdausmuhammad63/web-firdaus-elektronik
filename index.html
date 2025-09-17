@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toko Elektronik Firdaus</title>
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAClUlEQVRYR+2Xv0tUURTHf5eYKAglKIkpAhFqJ4EgAoy0VgFQYmR4QOgguZsY0OqTgKRISo2EcVEVDRBoCgjVigIkUqEEwVY2tFh1XjufX+7e+50sFGJz+d5zvnN+/v++be6BRoEU2gBRWgFE2gBq4o0g8N2gG+AC5mANX1lsH4BQ+yAlbcBK5Mdn+4HT2WqQCv5AqaYCc4F3AAtTg6wU8AC8HZcCxYxtq3ALtZkXew7cBN8EXYBf4NdGJ0JvEAzL+h3gTtQA95J6kiwBfxZyp82xtBc4C/6JvYhs+6q8D3wCX0A54B94FvYmTIj0F3QGvX0rkK6DJnWwKXwG5k0/1C5SyO/ErOxIuR0+SxG1k66O3K/2FFeUvyKoEXR/+wS94DQ4AgR4CUxAQwAzgJWE6gVtC6cB/oO6aH8FGIAjZ2dN/gL9zBKFhJ0JXoAE0IkOnX+/n+pi8v1vXyD8Xddj+WJtUJ3gAAAABJRU5ErkJggg==" type="image/png">
+<meta name="description" content="Toko Elektronik Firdaus menyediakan berbagai peralatan elektronik berkualitas, mulai dari AC, TV, kulkas, hingga peralatan rumah tangga lainnya. Hubungi kami untuk promo menarik dan pelayanan terbaik.">
+
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    /* Hero dengan background image */
+    header.hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url("https://images.unsplash.com/photo-1606813902779-1c7c1829bd6f?w=1600&q=80") center/cover no-repeat;
+      color: white;
+    }
+    /* Produk card modern */
+    .product-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    /* Testimoni carousel */
+    .testimonial {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    /* CTA gradient */
+    section.cta {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+    }
+    /* ===== Hero Section ===== */
+    .hero {
+      height: 50vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-bg {
+      height: 50vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 10%,
+        rgba(0, 0, 0, 0.45) 60%
+      );
+      z-index: 1;
+    }
+
+    /* ===== Text Animation ===== */
+    .animate-text {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .carousel-item.active .animate-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive Font Size ===== */
+    @media (max-width: 576px) {
+      .animate-text h1 {
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+      }
+      .animate-text p.lead {
+        font-size: 0.95rem;
+      }
+    }
+
+    .custom-toggler {
+      border: none;
+      background: transparent;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .custom-toggler .bar {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .custom-toggler.active .top-bar {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .custom-toggler.active .middle-bar {
+      opacity: 0;
+    }
+
+    .custom-toggler.active .bottom-bar {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+  </style>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container d-flex align-items-center justify-content-start">
+    <!-- Hamburger kiri -->
+    <button class="navbar-toggler custom-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="bar top-bar"></span>
+      <span class="bar middle-bar"></span>
+      <span class="bar bottom-bar"></span>
+    </button>
+
+    <!-- Logo & Brand -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+      <img src="img/fe-1.png" alt="Logo" width="30" height="30" class="me-2">
+      Toko Elektronik Firdaus
+    </a>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="promo.html">Promo</a></li>
+        <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero text-center position-relative">
+  <!-- Slider / Carousel -->
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero-bg d-flex align-items-center justify-content-center text-white"
+             style="background-image: url('https://images.samsung.com/is/image/samsung/nz-fhd-t5500-ua43t6500asxnz-frontblack-thumb-231817640');">
+          <div class="overlay"></div>
+          <div class="container position-relative animate-text">
+            <h1 class="display-3 fw-bold mb-3 px-5">Selamat Datang di <span class="text-warning">Toko Elektronik Firdaus</span></h1>
+            <p class="lead mb-4 px-5">AC, Kulkas, TV, Mesin Cuci & Elektronik Terbaik dengan Harga Terjangkau</p>
+            <a href="#product" class="btn btn-warning btn-lg rounded-pill shadow px-4">Lihat Produk</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero-bg d-flex align-items-center justify-content-center text-white"
+             style="background-image: url('https://images.renos.id/production/assets/portal-assets/1161/product/images/xopkaqlzdo.jpg');">
+          <div class="overlay"></div>
+          <div class="container position-relative animate-text">
+            <h1 class="display-3 fw-bold mb-3">Elektronik <span class="text-info">Modern</span></h1>
+            <p class="lead mb-4">Produk terbaik dengan kualitas terjamin</p>
+            <a href="produk.html" class="btn btn-info btn-lg rounded-pill shadow px-4">Belanja Sekarang</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="hero-bg d-flex align-items-center justify-content-center text-white"
+             style="background-image: url('https://images.samsung.com/is/image/samsung/id-side-by-side-rs5000-rs62r5041b4-se-lperspectiveblack-150397128?$684_547_PNG$');">
+          <div class="overlay"></div>
+          <div class="container position-relative animate-text">
+            <h1 class="display-3 fw-bold mb-3">Promo <span class="text-danger">Spesial</span></h1>
+            <p class="lead mb-4">Dapatkan diskon menarik setiap bulan</p>
+            <a href="promo.html" class="btn btn-danger btn-lg rounded-pill shadow px-4">Cek Promo</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Control -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</header>
+
+  <!-- Keunggulan -->
+  <section class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-5">Kenapa Pilih Kami?</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <i class="bi bi-shield-check display-5 text-primary"></i>
+              <h5 class="card-title mt-3">Garansi Resmi</h5>
+              <p class="card-text">Semua produk bergaransi pabrik.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <i class="bi bi-tag-fill display-5 text-success"></i>
+              <h5 class="card-title mt-3">Harga Terjangkau</h5>
+              <p class="card-text">Diskon menarik setiap bulan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <i class="bi bi-tools display-5 text-warning"></i>
+              <h5 class="card-title mt-3">Layanan Servis</h5>
+              <p class="card-text">Bantuan teknisi terpercaya.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <i class="bi bi-truck display-5 text-danger"></i>
+              <h5 class="card-title mt-3">Pengiriman Cepat</h5>
+              <p class="card-text">Langsung ke rumah Anda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Produk Terlaris -->
+<section id="product" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-4">Produk Terlaris</h2>
+    <div class="row justify-content-center">
+      
+      <!-- Produk 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center">
+          <img src="https://images.samsung.com/is/image/samsung/nz-fhd-t5500-ua43t6500asxnz-frontblack-thumb-231817640"
+               class="card-img-top img-fluid d-block mx-auto p-3" 
+               alt="Smart TV Samsung">
+          <div class="card-body">
+            <h5 class="card-title">Smart TV Samsung 43"</h5>
+            <p class="card-text text-primary fw-bold">Rp 6.500.000</p>
+            <a href="#" class="btn btn-primary">Beli Sekarang</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produk 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center">
+          <img src="https://images.renos.id/production/assets/portal-assets/1161/product/images/xopkaqlzdo.jpg" 
+               class="card-img-top img-fluid d-block mx-auto p-3" 
+               alt="AC LG Inverter">
+          <div class="card-body">
+            <h5 class="card-title">AC LG Inverter 1PK</h5>
+            <p class="card-text text-primary fw-bold">Rp 3.500.000</p>
+            <a href="#" class="btn btn-primary">Beli Sekarang</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produk 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center">
+          <img src="https://images.samsung.com/is/image/samsung/id-side-by-side-rs5000-rs62r5041b4-se-lperspectiveblack-150397128?$684_547_PNG$" 
+               class="card-img-top img-fluid d-block mx-auto p-3" 
+               alt="Kulkas Samsung Side by Side">
+          <div class="card-body">
+            <h5 class="card-title">Kulkas Samsung Side by Side</h5>
+            <p class="card-text text-primary fw-bold">Rp 7.800.000</p>
+            <a href="#" class="btn btn-primary">Beli Sekarang</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Apa Kata Pelanggan Kami -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-4">Apa Kata Pelanggan Kami</h2>
+    <div class="row justify-content-center">
+      
+      <!-- Testimoni 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center p-3">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+               class="rounded-circle mx-auto mb-3" width="80" height="80" alt="Pelanggan 1">
+          <div class="card-body">
+            <p class="card-text fst-italic">"Pelayanan ramah dan barang sampai cepat. AC LG yang saya beli sangat dingin dan hemat listrik."</p>
+            <h6 class="fw-bold mb-0">Andi Pratama</h6>
+            <small class="text-muted">Jakarta</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimoni 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center p-3">
+          <img src="https://favo.id/cdn/shop/articles/Pria_Maskulin_Wajib_Coba_5_Gaya_Janggut_dan_Kumis_Ini.jpg?v=1554360021" 
+              class="rounded-circle mx-auto mb-3 object-fit-cover"
+              style="width: 80px; height: 80px; object-fit: cover;" 
+              alt="Pelanggan 2">
+          <div class="card-body">
+            <p class="card-text fst-italic">"TV Samsung kualitas gambarnya tajam banget, keluarga saya puas nonton bareng di rumah."</p>
+            <h6 class="fw-bold mb-0">Allan Abdullah</h6>
+            <small class="text-muted">Bandung</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimoni 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center p-3">
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" 
+               class="rounded-circle mx-auto mb-3" width="80" height="80" alt="Pelanggan 3">
+          <div class="card-body">
+            <p class="card-text fst-italic">"Kulkas yang saya beli hemat listrik, barangnya sesuai deskripsi, dan pengiriman aman."</p>
+            <h6 class="fw-bold mb-0">Budi Santoso</h6>
+            <small class="text-muted">Surabaya</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CTA -->
+  <section class="cta text-white text-center py-5">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Butuh AC atau Elektronik Sekarang?</h2>
+      <p class="lead">Dapatkan produk terbaik dengan harga terjangkau dan layanan terpercaya.</p>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-light btn-lg mt-3 shadow">
+        <i class="bi bi-whatsapp"></i> Hubungi Kami di WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Toko Elektronik Firdaus. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/6281234567890" target="_blank" 
+   class="whatsapp-button d-flex align-items-center justify-content-center">
+   <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- Tambahkan di body atau di akhir body -->
+<style>
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* jarak dari bawah */
+    right: 20px;  /* jarak dari kanan */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    color: white;
+}
+</style>
+
+</body>
+</html>
